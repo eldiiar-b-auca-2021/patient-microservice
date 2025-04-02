@@ -1,0 +1,13 @@
+### GET request to example server
+POST http://localhost:8080/patients/create-patient
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "testgmail.com",
+  "address": "123 main street",
+  "dateOfBirth": "2003-04-12"
+}
+
+###
