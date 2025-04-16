@@ -1,0 +1,13 @@
+### Put update patient
+PUT http://localhost:8080/patients/update-patient/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Eldan",
+  "email": "test12@gmail.com",
+  "address": "123 main street",
+  "dateOfBirth": "2003-04-12"
+}
+
+###

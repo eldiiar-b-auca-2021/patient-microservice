@@ -1,8 +1,18 @@
+server:
+  port: 4000
 spring:
+  kafka:
+    properties:
+      metrics.reporters: [ ]
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      bootstrap-servers: ${KAFKA_BROKER:kafka:9094}
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/patient_db
-    username: postgres
-    password: postgres
+    url: ${SPRING_DATASOURCE_UR:jdbc:postgresql://localhost:5432/patient_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -10,3 +20,15 @@ spring:
       ddl-auto: update
     show-sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+billing:
+  service:
+    address: ${BILLING_SERVICE_ADDRESS:localhost}
+    grpc:
+      port: 9001
+
+logging:
+  level:
+    root: info
+
+

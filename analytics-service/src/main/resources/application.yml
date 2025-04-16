@@ -1,0 +1,18 @@
+spring:
+  kafka:
+    properties:
+      metrics.reporters: [ ]
+    consumer:
+      group-id: analytics-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      bootstrap-servers: ${KAFKA_BROKER:kafka-1:9094}
+
+server:
+  port: 4002
+
+#logging:
+#  level:
+#    org.apache.kafka: DEBUG
+#    org.springframework.kafka: DEBUG
